@@ -1,0 +1,42 @@
+.section{
+    display: flex;
+    flex-direction: column;
+}
+
+.section__flex__sides{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section__title {
+    color: var(--spotify-color);
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.section__title:hover, .section__seeAll:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.section__title__flex{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section__seeAll {
+    color: var(--spotify-text-color);
+    margin-right: 25px;
+}
+
+
+.section__subheading {
+    padding: 0.3em;
+    margin-left: 20px;
+    position: relative;
+    top: -15px;
+    color: var(--spotify-text-color);
+}

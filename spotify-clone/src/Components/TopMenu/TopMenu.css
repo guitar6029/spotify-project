@@ -1,0 +1,145 @@
+#topmenu__magnifyingGlass{
+    cursor: pointer;
+}
+
+
+.menuIcon {  
+    
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    top: 10px;
+    color: var(--spotify-color);
+}
+
+
+.topmenu {
+    display: grid;
+    grid-template-areas: 'search options';
+    grid-template-columns: 1fr 1fr;
+    /* z-index: 1; */
+    position: fixed;
+    background-color: var(--spotify-background);
+    height: 70px;
+}
+
+.topmenu__search {
+    grid-area: search;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.topmenu__search>form>input {
+    border-color: var(--spotify-background);
+    outline-color: var(--spotify-background);
+    width: 300px;
+    border-radius: 20px;
+    height: 40px;
+    padding-left: 10px;
+    font-family: inherit;
+}
+
+.topmenu__search>form {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.topmenu__search>form>button {
+    background-color: var(--spotify-background);
+    color: var(--spotify-color);
+    font-size: 20px;
+    border-color: var(--spotify-background);
+    border-radius: 50%;
+
+}
+
+.topmenu__menu {
+    display: none;
+    color: var(--spotify-color);
+    font-size: 20px;
+    align-self: center;
+    grid-area: menu;
+    justify-self: end;
+    margin-right: 1em;
+    cursor: pointer;
+
+}
+
+.show {
+    
+    grid-area: menu;
+    display: block !important;
+    width: 200px;
+    display: flex;
+    list-style-type: none;
+    text-decoration: none;
+    flex-direction: row;
+    font-size: 15px;
+    color: var(--spotify-color);
+
+}
+
+.show > i {
+    margin: 10px;
+}
+
+.topmenu__menu__show {
+    display: none !important;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    color: var(--spotify-color);
+
+}
+
+.topmenu__menu>ul>li {
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+.topmenu__options {
+
+    grid-area: options;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    /* justify-items: end; */
+    color: var(--spotify-text-color)
+}
+
+.topmenu__options>h3:hover {
+    transform: scale(1.04);
+    color: var(--spotify-color);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1120px) {
+
+    .topmenu {
+        grid-template-areas: 'search menu';
+        grid-template-columns: 1fr 1fr;
+        justify-items: end;
+    }
+
+    .topmenu__options {
+        display: none;
+
+    }
+
+    
+
+}
+
+
+@media screen and (max-width: 640px) {
+    .topmenu__search>form>input {
+        display: none;
+    }
+
+    
+}

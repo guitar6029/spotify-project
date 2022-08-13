@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+body{
+    --spotify-background: #121212;
+    --spotify-color: #fffefe;
+    --spotify-text-color: #b4aeae;
+    --spotify-playlist-item-background-color: #171616; 
+    --main-background-color :  #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+
+}
+
+.icons{
+    color: var(--spotify-color);
+}
+
+.layout{
+    display: flex;
+    flex-direction: row;   
+}
+
+.layout__main{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

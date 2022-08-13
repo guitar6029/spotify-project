@@ -1,0 +1,25 @@
+.sidebarOption{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    color: var(--spotify-text-color);
+}
+
+.sidebarOption:hover > a { 
+    color: var(--spotify-color);
+}
+
+.sidebarOption > a {
+    color: var(--spotify-text-color);
+}
+
+.sidebarOption:hover > h4 {
+    color: var(--spotify-color);
+}
+
+.sidebarOption > h4 {
+   cursor: pointer;
+   color: var(--spotify-text-color);
+}
