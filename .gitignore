@@ -1,0 +1,4 @@
+node_modules
+
+./spotify-clone/node_modules
+.env

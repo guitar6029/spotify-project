@@ -30,7 +30,7 @@ function TopMenu() {
 
       </div>
 
-      {/* <div class="topmenu__expand">
+      {/* <div className="topmenu__expand">
       <i className={ (toggle) ? "fa-solid fa-x menuIcon" : "fa-solid fa-bars menuIcon"} onClick={toggleMenu}></i>
       </div>           */}
 

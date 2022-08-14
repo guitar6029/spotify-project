@@ -21,6 +21,7 @@
     position: fixed;
     background-color: var(--spotify-background);
     height: 70px;
+    width: 100%;
 }
 
 .topmenu__search {
