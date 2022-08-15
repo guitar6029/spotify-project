@@ -20,6 +20,7 @@ function Track({ title, trackNumber, artist, album, albumImg }) {
 
   return (
     <div className='playlist__tracks' >
+       {/* {(addToLikedSongs) && <div className="notification info"><h3>added to your Liked Songs</h3></div>} */}
       <div className="track__trackNumber"> {trackNumber} </div>
 
       <div className="track">
@@ -43,8 +44,8 @@ function Track({ title, trackNumber, artist, album, albumImg }) {
         </div>
 
       </div>
-      {(addToLikedSongs) ? <div className="notification info"><h3>added to your Liked Songs</h3></div> : null}
-      {(removeFromLikedSongs) ? null : <div className="notification info"><h3>removed from your Liked Songs</h3></div> }
+  
+      {/* {(removeFromLikedSongs) && <div className="notification info"><h3>removed from your Liked Songs</h3></div> } */}
       <div className='track__album'>{album}</div>
       <div className='track__daysAdded'>7 days ago</div>
       <div className='track__trackLength'><i className="fa fa-heart-o margin__right pointer" onClick={handleTrackLike}></i>3:36
