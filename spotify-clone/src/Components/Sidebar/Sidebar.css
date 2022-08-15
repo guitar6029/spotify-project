@@ -27,8 +27,8 @@
 
 .sidebar{
 
-    /* display:flex;
-    position: fixed; */
+    /* display:flex; */
+    /* position:sticky;  */
     flex-direction: column;
     padding: 20px;
     color: var(--spotify-color);

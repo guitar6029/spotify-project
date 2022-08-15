@@ -8,6 +8,7 @@ body{
     --main-background-color :  #1a1a1a;
     font-family: 'Roboto', sans-serif;
     height: 100vh;
+    /* overflow-y: hidden; */
 
 }
 
@@ -24,4 +25,5 @@ body{
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow-y: scroll;
 }

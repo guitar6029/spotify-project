@@ -1,31 +1,223 @@
 import { useState } from 'react'
+import {v4} from 'uuid';
+import Track from './Track/Track';
 import './Playlist.css';
 
 function Playlist({ playlist }) {
-  // console.log('playlist : ');
-  // console.log(playlist);
 
 
-  const [mouseEnteredTrackSection, modifyIconsOnHover] = useState(false);
-  const [addToLikedSongs, toggleLike] = useState(true);
+  // const [mouseEnteredTrackSection, modifyIconsOnHover] = useState(false);
+  // const [addToLikedSongs, toggleLike] = useState(true);
+  const [counter, setCounter] = useState(0);
 
-  const handleMouseEnter = () => {
-    modifyIconsOnHover(previousState => !previousState);
+  
 
-  }
+  const tracks = [
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    { id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+    {
+      id: v4(),
+      title: 'Te Mato',
+      artist: 'Mestis',
+      album: 'Basal Manglia'
+    },
+  ]
 
-  const handleMouseLeave = () => {
-    modifyIconsOnHover(previousState => !previousState);
-  }
-
-
-  const handleTrackLike = () => {
-
-    
-  }
-
-  const onMouseHoverShowIcons = <div><i className="fa fa-heart-o margin__right pointer" onClick={handleTrackLike}></i>3:36
-    <i className="fa-solid fa-ellipsis margin__left pointer"></i></div>
 
   return (
     <div className="playlist">
@@ -59,34 +251,11 @@ function Playlist({ playlist }) {
         <div><i className="fa-solid fa-clock"></i></div>
       </div>
 
-      <div className='playlist__tracks' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <div className="track__trackNumber">{(mouseEnteredTrackSection) ? <i className="fa-solid fa-play track__trackNumber"></i> : 1}</div>
-
-        <div className="track">
-
-          <div className="track__album__image">
-
-            <img src={`../${playlist.playlistImage}`} alt={playlist.title} />
-
-          </div>
-
-          <div className='track__album__description'>
-
-            <div className='track__album__albumTrack'>
-              <span>Track</span>
-            </div>
-
-            <div className='track__album__artist'>
-              <span>Artist</span>
-            </div>
-
-          </div>
-
-        </div>
-        <div className='track__album'>album</div>
-        <div className='track__daysAdded'>7 days ago</div>
-        <div className='track__trackLength'>{(mouseEnteredTrackSection) ? onMouseHoverShowIcons : "3:46"}</div>
-      </div>
+      {tracks.map( (track, trackNumber) => {
+        return (
+          <Track key={track.id}  trackNumber={++trackNumber}  title={track.title} artist={track.artist} album={track.album} albumImg={playlist.playlistImage} />
+        )
+      })}
 
     </div>
   )

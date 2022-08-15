@@ -14,6 +14,13 @@ const focusPlaylists = playlist.filter(playlist => playlist.category === 'Deep F
       
         <Section title='Mood' subHeading="Playlist to match your mood" playlists={moodPlaylists}/>
         <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
+        <Section title='Focus' subHeading="Music to help you concentrate" playlists={focusPlaylists}/>
     
       </div>
   )

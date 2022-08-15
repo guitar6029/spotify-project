@@ -83,7 +83,7 @@
     justify-items: center;
     align-items: center;
     font-size: 15px;
-    margin-top: 2em;
+    /* margin-top: 1em; */
     margin-left: 2em;
 }
 
@@ -123,6 +123,19 @@
 .playlist__tracks:hover > .track > .track__album__description > .track__album__artist {
     color: var(--spotify-color);
 }
+
+.playlist__tracks > .track__trackLength > i:nth-child(1), 
+.playlist__tracks > .track__trackLength > i:nth-child(2){
+    color : var(--spotify-background);
+    
+}
+
+.playlist__tracks:hover > .track__trackLength > i:nth-child(1), 
+.playlist__tracks:hover > .track__trackLength > i:nth-child(2){
+    color : var(--spotify-text-color);
+}
+
+
 
 
 .playlist__tracks > .track {
@@ -189,8 +202,8 @@
 
 .playlist__bottom__section>div:nth-child(5) {
     grid-area: time;
-    justify-self: start;
-    margin-right: 5em;
+    justify-self: center;
+    margin-right: 20em;
 }
 
 
@@ -206,6 +219,10 @@
     margin-top: 10px;
 }
 
+
+.playlist__description > .playlist__description__description{
+    font-family: inherit;
+}
 
 .playlist__description__title {
     font-size: 5em;
@@ -223,3 +240,4 @@
     height: 100%;
     object-fit: fill;
 }
+

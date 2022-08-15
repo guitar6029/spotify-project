@@ -30,10 +30,6 @@ function TopMenu() {
 
       </div>
 
-      {/* <div className="topmenu__expand">
-      <i className={ (toggle) ? "fa-solid fa-x menuIcon" : "fa-solid fa-bars menuIcon"} onClick={toggleMenu}></i>
-      </div>           */}
-
       <div className='topmenu__options'>
         <h3>Premium</h3>
         <h3>Support</h3>
@@ -43,7 +39,6 @@ function TopMenu() {
         <h3>Log in</h3>
       </div>
 
-      {/* <i id="accountIcon" className="fa-solid fa-user icons"></i> */}
     </div>
   )
 }
