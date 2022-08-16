@@ -8,211 +8,211 @@ function Playlist({ playlist }) {
 
   // const [mouseEnteredTrackSection, modifyIconsOnHover] = useState(false);
   // const [addToLikedSongs, toggleLike] = useState(true);
-  const [counter, setCounter] = useState(0);
+  // const [counter, setCounter] = useState(0);
 
   
 
   const tracks = [
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     { id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
     {
       id: v4(),
-      title: 'Te Mato',
+      title: 'Some track',
       artist: 'Mestis',
       album: 'Basal Manglia'
     },
