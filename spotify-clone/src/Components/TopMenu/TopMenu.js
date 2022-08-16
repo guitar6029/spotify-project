@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom';
 import './TopMenu.css';
 
 function TopMenu() {
@@ -31,12 +32,12 @@ function TopMenu() {
       </div>
 
       <div className='topmenu__options'>
-        <h3>Premium</h3>
-        <h3>Support</h3>
-        <h3>Download</h3>
+        <Link to="/premium"><h3>Premium</h3></Link>
+        <Link to="/support"><h3>Support</h3></Link>
+        <Link to="/download"><h3>Download</h3></Link>
         <h3>|</h3>
-        <h3>Sign up</h3>
-        <h3>Log in</h3>
+        <Link to="/user/signup"><h3>Sign up</h3></Link>
+        <Link to="/user/signin"><h3>Log in</h3></Link>
       </div>
 
     </div>

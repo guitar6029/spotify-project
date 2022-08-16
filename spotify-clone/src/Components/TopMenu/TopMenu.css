@@ -112,7 +112,17 @@
     color: var(--spotify-text-color)
 }
 
-.topmenu__options>h3:hover {
+
+.topmenu__options > a {
+    text-decoration: none;
+    color: var(--spotify-text-color);
+}
+
+.topmenu__options > a:active {
+    color: var(--spotify-color);
+}
+
+.topmenu__options> a > h3:hover {
     transform: scale(1.04);
     color: var(--spotify-color);
     cursor: pointer;
