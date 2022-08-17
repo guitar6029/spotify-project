@@ -6,12 +6,15 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    email: {
+        type: String,
+        required: true
+    },
     cratedAt: {
         type: Date,
         immutable: true,
         default: Date.now,
     },
-
     
 });
 

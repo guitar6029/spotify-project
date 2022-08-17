@@ -1,23 +1,17 @@
 const express = require('express');
 const app = express();
 const uuid = require('uuid');
+const dotenv = require('dotenv').config()
 const port = process.env.PORT || 3005;
 const mongoose = require('mongoose');
-const User = require('./Models/User');
-//connect to mongodb
-const connectToDB = async () => {
-    try{
-        await mongoose.connect("mongodb://localhost/spotify/users");
-    }catch(e){
-        console.log(e.messages);
-    }
-    
-} 
+const connectToDatabase = require('./config/db');
 
+//connect to mongodb
+connectToDatabase()
 
 app.use(express.static('./public'));
 
-//app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 
 let playlists = [
@@ -79,6 +73,7 @@ let playlists = [
     }
 ]
 
+app.use('/api/users', require('./routes/userRoutes'));
 
 app.get('/api', (req,res) => {
 
