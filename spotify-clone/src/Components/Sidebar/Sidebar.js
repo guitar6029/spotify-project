@@ -15,6 +15,11 @@ export default function Sidebar() {
 
   const handleSidebar = () => {
         setExpandSidebar(previousState => !previousState);
+        
+  }
+
+  const handleClick = () => {
+    console.log('clicked');
   }
 
   return (
@@ -22,11 +27,11 @@ export default function Sidebar() {
        
         { (expand) ? <FirstPageIcon className='sidebar__expand'  onClick={handleSidebar}/> : <LastPageIcon className='sidebar__expand left'  onClick={handleSidebar}/> }
         { (expand) ? <i id="spotify" className="fa-brands fa-spotify"></i> : null}
-        <SidebarOption text="Home" Icon={HomeIcon}   />
-        <SidebarOption text="Search" Icon={SearchIcon}   />
-        <SidebarOption text="Your Library" Icon={ViewWeekIcon}   />
-        <SidebarOption text="Create Playlist" Icon={LibraryAddIcon}   />
-        <SidebarOption text="Liked Songs" Icon={FavoriteIcon}   />
+        <SidebarOption text="Home" Icon={HomeIcon}   onClick={handleClick} routeTo={'/'}/>
+        <SidebarOption text="Search" Icon={SearchIcon} routeTo={'/'}/>
+        <SidebarOption text="Your Library" Icon={ViewWeekIcon}  routeTo={'/user/collection/library'} />
+        <SidebarOption text="Create Playlist" Icon={LibraryAddIcon}   routeTo={'/user/create-playlist'}/>
+        <SidebarOption text="Liked Songs" Icon={FavoriteIcon}  routeTo={'/user/liked'} />
 
     </div>
   )

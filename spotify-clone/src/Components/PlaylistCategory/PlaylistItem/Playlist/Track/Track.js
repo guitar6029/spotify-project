@@ -11,8 +11,8 @@ function Track({ title, trackNumber, artist, album, albumImg }) {
 
 
     setAddLikedSong(previousState => !previousState);
+    notifyUser(addToLikedSongs);
     
-    //notifyUser(addToLikedSongs);
     
   }
 

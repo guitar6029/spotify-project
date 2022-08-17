@@ -219,6 +219,13 @@ function Playlist({ playlist }) {
   ]
 
 
+ const handleAddToPlaylists = () => {
+      console.log(playlist.id);
+        console.log('added to your playlists');  
+ }
+
+
+
   return (
     <div className="playlist">
 
@@ -239,7 +246,7 @@ function Playlist({ playlist }) {
 
       <div className='playlist__middle__section'>
         <i className="fa-solid fa-circle-play"></i>
-        <i className="fa fa-heart-o"></i>
+        <i className="fa fa-heart-o" onClick={handleAddToPlaylists}></i>
         <i className="fa-solid fa-ellipsis"></i>
       </div>
 

@@ -1,10 +1,10 @@
-#topmenu__magnifyingGlass{
+#topmenu__magnifyingGlass {
     cursor: pointer;
 }
 
 
-.menuIcon {  
-    
+.menuIcon {
+
     position: relative;
     float: right;
     margin-right: 10px;
@@ -68,7 +68,7 @@
 }
 
 .show {
-    
+
     grid-area: menu;
     display: block !important;
     width: 200px;
@@ -78,10 +78,11 @@
     flex-direction: row;
     font-size: 15px;
     color: var(--spotify-color);
+    cursor: pointer;
 
 }
 
-.show > i {
+.show>i {
     margin: 10px;
 }
 
@@ -113,19 +114,46 @@
 }
 
 
-.topmenu__options > a {
+.topmenu__options>a {
     text-decoration: none;
     color: var(--spotify-text-color);
 }
 
-.topmenu__options > a:active {
+.topmenu__options>a:active {
     color: var(--spotify-color);
 }
 
-.topmenu__options> a > h3:hover {
+.topmenu__options>a>h3:hover {
     transform: scale(1.04);
     color: var(--spotify-color);
     cursor: pointer;
+}
+
+
+.userIcon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: absolute;
+
+    border-radius: 10px;
+    background-color: var(--spotify-text-color);
+    color: var(--spotify-color);
+    width: 100px;
+
+}
+
+.show>h3 {
+    margin-top: 10px;
+}
+
+.hide {
+    display: none;
 }
 
 
@@ -141,16 +169,11 @@
         display: none;
 
     }
-
-    
-
 }
-
 
 @media screen and (max-width: 640px) {
     .topmenu__search>form>input {
         display: none;
     }
 
-    
 }

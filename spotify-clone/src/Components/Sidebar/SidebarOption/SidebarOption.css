@@ -7,6 +7,12 @@
     color: var(--spotify-text-color);
 }
 
+.sidebarOption > a {
+    text-decoration: none;
+    
+}
+
+
 .sidebarOption:hover > a { 
     color: var(--spotify-color);
 }

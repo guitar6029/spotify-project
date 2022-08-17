@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useNavigate, Link} from 'react-router-dom';
+import { UserAuth } from '../../../Context/UserAuth';
 import './Signin.css';
 
 function Signin() {
@@ -9,6 +10,7 @@ function Signin() {
     
     const [noErrors, setErrors] = useState(false);
 
+    const {signInUser} = UserAuth();
 
     const navigate = useNavigate();
 
@@ -28,7 +30,8 @@ function Signin() {
     const authUserInput = async(e) => {
         e.preventDefault();
         try{
-            // auth user goes here
+            await signInUser(userEmail, userPassword);
+            navigate('/');
         }catch(e){
             console.log(e.messages);
         }

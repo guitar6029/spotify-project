@@ -1,0 +1,28 @@
+.library__nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: var(--spotify-background);
+    height: 70px;
+    width: 100%;
+    color: var(--spotify-color);
+}
+
+.library__nav__items{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-top: 15px;
+    margin-left: 45px;
+
+}
+
+.library__nav__itemTitle{
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.selected {
+    background-color: var(--spotify-text-color);
+}

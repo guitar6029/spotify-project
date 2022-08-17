@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import {useNavigate, Link} from 'react-router-dom';
+import { UserAuth } from '../../../Context/UserAuth';
 import './Signup.css';
 
 function Signup() {
 
+
+    // to save user email and username for User Collection in MongoDb
+    // also user info will be authorized using Firebase Auth
     const [userEmail, setUserEmail] = useState('');
     const [userConfirmEmail, setUserConfirmEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
@@ -11,6 +15,17 @@ function Signup() {
     const [sameEmail, confirmEmails] = useState(false);
     const [noErrors, setErrors] = useState(false);
 
+
+    //create use obj, email , username 
+    const user = {
+        email : userEmail,
+        username : userUsername,
+        playlists: [{}],
+        likedSongs : [{}]
+    }
+
+
+    const {createUser} = UserAuth();
 
     const navigate = useNavigate();
 
@@ -37,14 +52,22 @@ function Signup() {
     const confirmUserEmails = (e) => {
         e.preventDefault();
         if (userEmail === userConfirmEmail && userEmail.length >= 4){
-            console.log('emails match');
-            setErrors(previousState => !previousState);
-            redirectUser();
-        }
-        else{
-            console.log('different emails');
+            console.log('matches');
+            setUserData(userEmail, userPassword);
+        }else{
+            console.log('the email not matching');
         }
     }
+
+    const setUserData = async (userEmail, userPassword) => {
+        try{
+            await createUser(userEmail, userPassword);
+            redirectUser();
+        }catch(e){
+            console.log(e.messages);
+        }
+    }
+
 
     const redirectUser = () => {
         navigate('/');

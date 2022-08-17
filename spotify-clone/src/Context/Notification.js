@@ -11,7 +11,7 @@ export const Notification = ({ children }) => {
   const [type, setMessageType] = useState('');
 
   const notifyUser = (addedToLikeSongs) => {
-    if (addedToLikeSongs) {
+    if (addedToLikeSongs === true) {
 
       setMessage('added to your liked songs');
       setMessageType('info');
