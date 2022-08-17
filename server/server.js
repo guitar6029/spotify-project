@@ -2,6 +2,18 @@ const express = require('express');
 const app = express();
 const uuid = require('uuid');
 const port = process.env.PORT || 3005;
+const mongoose = require('mongoose');
+const User = require('./Models/User');
+//connect to mongodb
+const connectToDB = async () => {
+    try{
+        await mongoose.connect("mongodb://localhost/spotify/users");
+    }catch(e){
+        console.log(e.messages);
+    }
+    
+} 
+
 
 app.use(express.static('./public'));
 
