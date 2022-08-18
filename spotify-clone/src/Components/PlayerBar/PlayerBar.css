@@ -1,0 +1,123 @@
+.controls__controls {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* align-self: center;
+    justify-self: end; */
+    gap: 25px;
+    margin-bottom: 10px;
+}
+
+.control__itemBar {
+    height: 5px;
+    background-color: var(--spotify-text-color);
+    width: 400px;
+    border-radius: 10px;
+}
+
+.controlIcons {
+    color: var(--spotify-text-color);
+    font-size: 30px;
+}
+
+.hoverChangeColor:hover {
+    color: var(--spotify-color);
+}
+
+.hoverChangeScale:hover {
+    scale: 1.2;
+}
+
+.playerBar {
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    background: #1e1d1d;
+    width: 100%;
+    color: var(--spotify-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.playerBar__controls > .controls__controls > i {
+    cursor: pointer;
+}
+
+.playerBar__item__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #686262;
+}
+
+.playerBar__left__section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.playerbar__right__section{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    align-items: center;
+    width: 200px;
+    color: var(--spotify-text-color);
+}
+
+.playerbar__right__section > i {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.playerBar__description {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.playerBar__controls {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.playerBar__item__description {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-self: center;
+}
+
+.smallIconFont {
+    font-size: 22px;
+}
+
+.soundbar{
+    height: 5px;
+    border-radius: 10px;
+    width: 100px;
+    background-color: var(--spotify-text-color);
+}
+
+.soundbar__level {
+    position: relative;
+    width: 50px;
+    border-radius: 10px;
+    height: 5px;
+    /* z-index: 5; */
+    background-color: rgb(40, 203, 56);
+}
+
+.soundbar__level > i {
+    position: relative;
+}
