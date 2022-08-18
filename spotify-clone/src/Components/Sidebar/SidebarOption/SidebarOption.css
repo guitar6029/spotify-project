@@ -18,14 +18,19 @@
 }
 
 .sidebarOption > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     color: var(--spotify-text-color);
 }
 
-.sidebarOption:hover > h4 {
+.sidebarOption:hover > a > h4 {
+    
     color: var(--spotify-color);
 }
 
-.sidebarOption > h4 {
+.sidebarOption > a > h4 {
    cursor: pointer;
+   margin-left: 12px;
    color: var(--spotify-text-color);
 }

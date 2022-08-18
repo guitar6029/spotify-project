@@ -9,6 +9,7 @@ import './App.css';
 import Signup from './Components/Account/Signup/Signup';
 import Signin from './Components/Account/Signin/Signin';
 import Library from './Components/Account/Library/Library';
+import CreatePlaylist from './Components/Account/Library/CreatePlaylist/CreatePlaylist';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
       <Route path='/user/signup' element={<Signup />} />
       <Route path='/user/signin' element={<Signin />} />
       <Route path="/user/collection/library" element={<Library />} />
+      <Route path="/user/create-playlist" element={<CreatePlaylist />} />
     </Routes>
     </Notification>
     </AuthContext>

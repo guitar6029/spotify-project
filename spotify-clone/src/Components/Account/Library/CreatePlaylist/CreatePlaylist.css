@@ -1,0 +1,60 @@
+.create__playlist{
+    margin-top: 1em;
+    /* margin-left: 4em; */
+    color: var(--spotify-color);
+    width: 100%;
+    height: 100vh;
+}
+
+.create__playlist > form {
+    color: white;
+}
+
+.font__large {
+    font-size: 5.2em;
+}
+
+.playlist__image > div {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(#191818, #2d302d);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist__image > div > i {
+    color: var(--spotify-text-color);
+    font-size: 4em;
+}
+
+.create__playlist__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.create__playlist__middle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+    width: 100%;
+    height: 100px;
+    gap: 1em;
+    background-color: #2d302d;
+}
+
+.create__playlist__middle > i:first-of-type {
+    margin-left: 2.5em;
+    
+}
+
+.create__playlist__middle > i {
+    font-size: 2em;
+    color: var(--spotify-text-color);
+    cursor: pointer;
+}
+
+

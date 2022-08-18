@@ -6,13 +6,15 @@ import './Library.css';
 
 function Library() {
 
+  
+
   return (
     <div className="layout">
     <Sidebar />
     <div className='layout__main'>
        <nav className='library__nav'>
             <div className='library__nav__items'>
-                <h3 className='library__nav__itemTitle selected'>Playlist</h3>
+                <h3 className='library__nav__itemTitle'>Playlist</h3>
                 <h3 className='library__nav__itemTitle'>Podcast</h3>
                 <h3 className='library__nav__itemTitle'>Artists</h3>
                 <h3 className='library__nav__itemTitle'>Albums</h3>
