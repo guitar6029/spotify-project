@@ -43,7 +43,7 @@
     justify-content: space-between;
 }
 
-.playerBar__controls > .controls__controls > i {
+.playerBar__controls>.controls__controls>i {
     cursor: pointer;
 }
 
@@ -61,7 +61,7 @@
     margin-left: 10px;
 }
 
-.playerbar__right__section{
+.playerbar__right__section {
     display: flex;
     flex-direction: row;
     margin-right: 10px;
@@ -70,7 +70,7 @@
     color: var(--spotify-text-color);
 }
 
-.playerbar__right__section > i {
+.playerbar__right__section>i {
     margin-right: 5px;
     cursor: pointer;
 }
@@ -102,22 +102,72 @@
     font-size: 22px;
 }
 
-.soundbar{
+/* chrome */
+
+input[type=range] {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+
+}
+
+/* slider track */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
     height: 5px;
-    border-radius: 10px;
-    width: 100px;
+    background: var(--spotify-text-color);
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: var(--spotify-color);
+    margin-top: -3px;
+}
+/* 
+input[type=range]:focus::-webkit-slider-runnable-track {
+    
+    background-color: var(--spotify-button-color);
+
+} */
+
+input[type=range] {
+    border: 1px solid rgb(18, 17, 17);
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: #121512;
+    border-radius: 5px;
+    height: 4px;
+    /* outline: none; */
+
+}
+
+
+/** FireFox*/
+
+input[type="range"]:hover::-moz-range-progress {
+    background-color: var(--spotify-button-color);
+}
+
+input[type="range"]::-moz-range-track {
     background-color: var(--spotify-text-color);
 }
 
-.soundbar__level {
-    position: relative;
-    width: 50px;
-    border-radius: 10px;
-    height: 5px;
-    /* z-index: 5; */
-    background-color: rgb(40, 203, 56);
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: #000;
 }
 
-.soundbar__level > i {
-    position: relative;
+input[type="range"]::-ms-fill-upper {
+    background-color: #000;
 }

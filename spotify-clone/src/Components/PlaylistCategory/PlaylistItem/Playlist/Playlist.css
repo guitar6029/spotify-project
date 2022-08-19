@@ -6,6 +6,11 @@
     background: linear-gradient(#10c5da, #2ad2eb);
 }
 
+
+.green {
+    color: green !important;
+}
+
 .playlist {
     margin-top: 5em;
     color: #fff;

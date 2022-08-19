@@ -1,12 +1,38 @@
-*{
+* {
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #121212;
+
+}
+/* 
+html::-webkit-scrollbar-thumb {
+  background-color: black;
+} */
+
+
+body::-webkit-scrollbar-track {
+  background: rgba(28, 23, 23, 0.3);
 }
 
 html {
-  scrollbar-color: hsla(0,0%,100%,.3) transparent;
+
+  scrollbar-color: rgba(187, 180, 180, 0.3) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+
+  scrollbar-color: rgba(86, 82, 82, 0.3) transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--spotify-text-color)
+}
+
+::-webkit-scrollbar-track {
+
+  background-color: rgb(196, 186, 186);
 }

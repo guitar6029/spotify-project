@@ -9,7 +9,7 @@ function Playlist({ playlist }) {
   // const [mouseEnteredTrackSection, modifyIconsOnHover] = useState(false);
   // const [addToLikedSongs, toggleLike] = useState(true);
   // const [counter, setCounter] = useState(0);
-
+  const [liked, toggleLiked] = useState(false);
   
 
   const tracks = [
@@ -220,8 +220,9 @@ function Playlist({ playlist }) {
 
 
  const handleAddToPlaylists = () => {
-      console.log(playlist.id);
-        console.log('added to your playlists');  
+        console.log(playlist.id);
+        console.log('added to your playlists');
+        toggleLiked(previousState => !previousState);  
  }
 
 
@@ -246,7 +247,7 @@ function Playlist({ playlist }) {
 
       <div className='playlist__middle__section'>
         <i className="fa-solid fa-circle-play"></i>
-        <i className="fa fa-heart-o" onClick={handleAddToPlaylists}></i>
+        { (liked) ? <i className="fa-solid fa-heart green" onClick={handleAddToPlaylists}></i> : <i className="fa fa-heart-o" onClick={handleAddToPlaylists}></i>}
         <i className="fa-solid fa-ellipsis"></i>
       </div>
 

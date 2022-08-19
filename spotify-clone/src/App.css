@@ -18,13 +18,16 @@ body{
 }
 
 .layout{
+    display: -webkit-flex;
     display: flex;
     flex-direction: row;   
 }
 
 .layout__main{
+    display: -webkit-flex;
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-y: scroll;
+    width: 100%;
+    /* overflow-y: scroll; */
 }

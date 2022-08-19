@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './PlayerBar.css';
 // the player bar will show once the user clicks play
 //the music controls and song description will show
@@ -6,13 +6,20 @@ function PlayerBar({ song }) {
 
 
 
-    const volumeBar = useRef(100);
+    const [volume, setVolume] = useState(100);
 
-    console.log(volumeBar.current.offsetWidth)
+    ///const volumeBar = useRef(100);
+
+    //console.log(volumeBar.current.offsetWidth)
 
     const handleVolumeAdjust = (e) => {
-        console.log(volumeBar.current.getBoundingClientRect());
-        console.log(e.clientX);
+        // console.log(volumeBar.current.getBoundingClientRect());
+        // console.log(e.clientX);
+        //volumeBar.current.width = '100px';
+    }
+
+    const adjustVolume = (e) => {
+        setVolume(e.target.valueAsNumber);
     }
 
 
@@ -52,14 +59,19 @@ function PlayerBar({ song }) {
             </div>
 
             <div className='playerbar__right__section'>
-            <i class="fa-solid fa-volume-low"></i>
-            <div className='soundbar'>
+                <i className="fa-solid fa-volume-low"></i>
+                <input type="range" min={0}
+                    max={1}
+                    step={0.02}
+                    value={volume}  onChange={adjustVolume}/>
+                {/* <div className='soundbar'>
                     <div ref={volumeBar} className='soundbar__level' onClick={handleVolumeAdjust}>
                     <i className="fa-solid fa-circle"></i>
                     </div>
-            </div>
 
-                <i className="fa-solid fa-volume"></i>
+                </div> */}
+
+                {/* <i className="fa-solid fa-volume"></i> */}
                 {/* 4 levels of volume , mute, low, middle, high */}
                 {/* <i class="fa-solid fa-volume-xmark"></i>
                 <i class="fa-solid fa-volume-low"></i> 
