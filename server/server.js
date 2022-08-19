@@ -73,7 +73,7 @@ let playlists = [
     }
 ]
 
-app.use('/api/users', require('./routes/userRoutes'));
+app.use('/users', require('./routes/userRoutes'));
 
 app.get('/api', (req,res) => {
 

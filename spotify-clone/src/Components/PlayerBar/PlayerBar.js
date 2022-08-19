@@ -8,15 +8,25 @@ function PlayerBar({ song }) {
 
     const [volume, setVolume] = useState(100);
     const [togglePlayPause, setTogglePlayPause] = useState(false);
-
+    const [toggleVolumeMute, setToggleVolumeMute] = useState(false)
+    const [previousVolume, setPreviousVolume] = useState(volume);
+    
     ///const volumeBar = useRef(100);
 
     //console.log(volumeBar.current.offsetWidth)
 
-    const handleVolumeAdjust = (e) => {
-        // console.log(volumeBar.current.getBoundingClientRect());
-        // console.log(e.clientX);
-        //volumeBar.current.width = '100px';
+        //if volume mute, set the volume to 0,
+        //if volume unmute, set the volume to previous volume
+    const handleVolumeMute = () => {
+        if(!toggleVolumeMute){
+            setVolume(0);
+            setToggleVolumeMute(previousState => !previousState);
+        }
+        else{
+            setVolume(previousVolume);
+            //set volume back to previous volume
+            setToggleVolumeMute(previousState => !previousState);
+        }
     }
 
     const handlePlayPause = () => {
@@ -24,6 +34,7 @@ function PlayerBar({ song }) {
     }
 
     const adjustVolume = (e) => {
+        setPreviousVolume(e.target.valueAsNumber);
         setVolume(e.target.valueAsNumber);
     }
 
@@ -64,7 +75,10 @@ function PlayerBar({ song }) {
             </div>
 
             <div className='playerbar__right__section'>
-                <i className="fa-solid fa-volume-low"></i>
+                <div>
+                <i className={ (toggleVolumeMute) ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-low "} onClick={handleVolumeMute}></i>
+                </div>
+                
                 <input type="range" min={0}
                     max={1}
                     step={0.02}

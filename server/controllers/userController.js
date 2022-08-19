@@ -1,82 +1,106 @@
 const asyncHandler = require('express-async-handler');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 const User = require('../Models/User');
 
-/***
- * 
- * gets the available users from db
- * 
- */
-
-const getUsers = asyncHandler(async (req,res)=>{
-    const users = await User.find();
-
-    res.status(200).json(users);
-})
 
 
 /****
  * 
- * creates a new user
- * public, search by name in the search bar, just like any artists, song or playlist
+ * register a new user
+ * generate jwt token
  */
 
-const setUser = asyncHandler(async (req,res)=>{
-    if(req.body.text){
+const registerUser = asyncHandler(async (req, res) => {
+
+    if (req.body.text) {
         res.status(400);
-        throw new Error("please add all of the input requirements")
+        throw new Error("Please add all of the input requirements")
     }
 
+    const { email, username, password } = req.body
+
+    //if empty
+    if (!email || !username || !password) {
+        res.status(400)
+        throw new Error('Please add all fields')
+    }
+
+    //finds if email or username already exists
+    const userExists = await User.findOne({ "$or": [{ email: email }, { username: username }] })
+    if (userExists) {
+        res.status(400)
+        throw new Error('User already exists with that email/username');
+    }
+
+    //hash the password
+    const saltRounds = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    //create the user
     const user = await User.create({
-        userEmail : req.body.userEmail,
-        userName : req.body.userName,
-        createdAt : Date.now
+        email,
+        username,
+        password: hashedPassword
     })
 
-    res.status(200).json(user)
+    if (user) {
+        res.status(201).json({
+            _id: user.id,
+            email: user.email,
+            username: user.username,
+            token: generateToken(user._id)
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid user data');
+    }
 })
-
 
 
 /****
  * 
- * 
- * updates the user
- * private, only the user could update their information
+ * login the user
+ * generate jwt token
  */
-const updateUser = asyncHandler(async (req,res)=>{
-    const user = await User.findById(req.params.id)
-    if(!user){
-    
-        res.status(400)
-        throw new Error('User not found.');
+const loginUser = asyncHandler(async (req, res) => {
+    const { email, password } = req.body
+
+    const user = await User.findOne({ email })
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+        res.json({
+            _id: user.id,
+            email: user.email,
+            username: user.username,
+            token: generateToken(user._id)
+        })
     }
-
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new : true});
-
-    res.status(200).json(updateUser)
-
+    else {
+        res.status(400)
+        throw new Error('User email or password is incorrect, please try again')
+    }
 })
 
-/***
- * 
- * delete user account
- * private, only for user and admin
- */
-
-const deleteUser = asyncHandler(async (req,res)=> {
-    const user = await  User.findById(req.params.id)
-    if(!user){
-        res.status(400)
-        throw new Error('User not found.')
-    }
-
-    await user.remove();
-
-    res.status(200).json({id: req.params.id})
-
+//user account
+const userAccount = asyncHandler(async (req, res) => {
+    const {_id, username, email } = await User.findById(req.user.id)
+    res.status(200).json({
+        id: _id,
+        username: username,
+        email: email
+    });
 })
+
+
+//jwt token
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
 
 
 module.exports = {
-    getUsers, setUser, updateUser, deleteUser
+    registerUser, loginUser, userAccount
 }
