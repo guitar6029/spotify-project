@@ -7,6 +7,7 @@ function PlayerBar({ song }) {
 
 
     const [volume, setVolume] = useState(100);
+    const [togglePlayPause, setTogglePlayPause] = useState(false);
 
     ///const volumeBar = useRef(100);
 
@@ -16,6 +17,10 @@ function PlayerBar({ song }) {
         // console.log(volumeBar.current.getBoundingClientRect());
         // console.log(e.clientX);
         //volumeBar.current.width = '100px';
+    }
+
+    const handlePlayPause = () => {
+        setTogglePlayPause(previousState => !previousState);
     }
 
     const adjustVolume = (e) => {
@@ -48,7 +53,7 @@ function PlayerBar({ song }) {
                 <div className='controls__controls'>
                     <i className="fa-solid fa-shuffle controlIcons hoverChangeColor smallIconFont"></i>
                     <i className="fa-solid fa-backward-step controlIcons hoverChangeColor smallIconFont"></i>
-                    <i className="fa-solid fa-circle-play controlIcons hoverChangeScale"></i>
+                    <i className={(togglePlayPause) ? 'fa-solid fa-circle-play controlIcons hoverChangeScale' : 'fa-solid  fa-circle-pause controlIcons hoverChangeScale'} onClick={handlePlayPause}></i>
                     <i className="fa-solid fa-forward-step controlIcons hoverChangeColor smallIconFont"></i>
                     <i className="fa-solid fa-repeat controlIcons hoverChangeColor smallIconFont"></i>
                 </div>
@@ -63,7 +68,7 @@ function PlayerBar({ song }) {
                 <input type="range" min={0}
                     max={1}
                     step={0.02}
-                    value={volume}  onChange={adjustVolume}/>
+                    value={volume} onChange={adjustVolume} />
                 {/* <div className='soundbar'>
                     <div ref={volumeBar} className='soundbar__level' onClick={handleVolumeAdjust}>
                     <i className="fa-solid fa-circle"></i>

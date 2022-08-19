@@ -1,0 +1,20 @@
+.page404{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--spotify-color);
+
+}
+
+.page404 > h3 {
+    font-size: 3em;
+}
+
+.page404 > a:visited{
+    color: var(--spotify-color);
+}

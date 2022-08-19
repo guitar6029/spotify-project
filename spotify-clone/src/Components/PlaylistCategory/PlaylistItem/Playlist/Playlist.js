@@ -10,7 +10,7 @@ function Playlist({ playlist }) {
   // const [addToLikedSongs, toggleLike] = useState(true);
   // const [counter, setCounter] = useState(0);
   const [liked, toggleLiked] = useState(false);
-  
+  // const [togglePlayPause, setTogglePlayPause] = useState(false);
 
   const tracks = [
     {
@@ -218,6 +218,10 @@ function Playlist({ playlist }) {
     },
   ]
 
+
+  // const handlePlayPause = () => {
+  //       setTogglePlayPause(previousState => !previousState);
+  // }
 
  const handleAddToPlaylists = () => {
         console.log(playlist.id);

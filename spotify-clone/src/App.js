@@ -11,6 +11,7 @@ import Signup from './Components/Account/Signup/Signup';
 import Signin from './Components/Account/Signin/Signin';
 import Library from './Components/Account/Library/Library';
 import CreatePlaylist from './Components/Account/Library/CreatePlaylist/CreatePlaylist';
+import Page404 from './Components/404/Page404';
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
             <Route path='/user/signin' element={<Signin />} />
             <Route path="/user/collection/library" element={<Library />} />
             <Route path="/user/create-playlist" element={<CreatePlaylist />} />
+            <Route path="*" element={<Page404 />} />
           </Routes>
         </Notification>
       </SpotifyPlayer>
