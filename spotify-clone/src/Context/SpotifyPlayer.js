@@ -6,12 +6,12 @@ const PlayerContext = createContext();
 
 export const SpotifyPlayer = ({children}) => {
 
-    const [userSelectedPlay, showPlayerBar] = useState(!false)
+    const [userSelectedPlay, showPlayerBar] = useState(false)
 
 
     const userClickedPlayButton = () => {
         console.log('inside spotify player context');   
-        //showPlayerBar(true);
+        showPlayerBar(true);
     }
 
 

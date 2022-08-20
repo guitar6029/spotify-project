@@ -51,10 +51,6 @@ function TopMenu() {
       </div>
 
       <div className='topmenu__options'>
-        <Link to="/premium"><h3>Premium</h3></Link>
-        <Link to="/support"><h3>Support</h3></Link>
-        <Link to="/download"><h3>Download</h3></Link>
-        <h3>|</h3>
         { (user) ? null :<Link to="/user/signup"><h3>Sign up</h3></Link>}
         { (user) ? <div>
           <i className="fa-solid fa-circle-user userIcon" onClick={showAccountOptions}></i>

@@ -9,6 +9,30 @@
     align-items: center;
 }
 
+
+.error__border__red {
+    border: red;
+}
+
+.error__notification{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-color: #ea2828;
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    /* border-radius: 10px; */
+    position: fixed;
+    bottom: 0;
+    
+}
+
+.error__notification > h3 {
+    margin-top: 10px;
+}
+
 .user__container{
     --spotify-button-color : #38cb55;
     display: flex;
