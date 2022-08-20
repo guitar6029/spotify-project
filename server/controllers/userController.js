@@ -18,11 +18,15 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error("Please add all of the input requirements")
     }
 
+    
     const { email, username, password } = req.body
 
     //if empty
     if (!email || !username || !password) {
         res.status(400)
+        console.log(email)
+        console.log(username)
+        console.log(password)
         throw new Error('Please add all fields')
     }
 

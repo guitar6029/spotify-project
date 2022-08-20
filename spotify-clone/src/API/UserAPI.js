@@ -13,7 +13,7 @@ const UserAPI = () => {
                 const getUsers = async () => {
             
                     try{
-                        const response = await axios.post('/users', {
+                        const response = await axios.post('/users/register', {
                             signal: controller.signal
                         });
                         console.log(response.data);

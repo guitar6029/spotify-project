@@ -69,8 +69,8 @@ export const AuthContext = ({ children }) => {
     // }, []) 
 
 
-    const createUser = () => {
-        
+    const createUser = (email, username, password) => {
+        console.log(`${email}, ${username}, ${password}`)
     }
 
         //for jwt method

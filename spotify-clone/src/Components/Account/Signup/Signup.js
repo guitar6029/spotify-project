@@ -1,34 +1,39 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import { UserAuth } from '../../../Context/UserAuth';
+//import { UserAuth } from '../../../Context/UserAuth';
+import axios from '../../../API/axios';
 import './Signup.css';
 
 function Signup() {
 
     // used for firebase auth
-    const { createUser } = UserAuth();
+    //const { createUser } = UserAuth();
+    
     const userRef = useRef(null);
 
     const navigate = useNavigate();
 
+    //register api URL
+    const REGISTER_URL = '/users/register';
+
     // for age restriction check
-    const MINIMUM_YEAR = 2009; 
+    //const MINIMUM_YEAR = 2009; 
 
     //for username and password requirements
-    const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{5,23}/;
-    const PASSWORD_REGEX = /^([?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+    //const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{5,23}/;
+    //const PASSWORD_REGEX = /^([?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
     // to save user email and username for User Collection in MongoDb
     // also user info will be authorized using Firebase Auth or JWT 
-    const [userEmail, setUserEmail] = useState('');
+    const [email, setUserEmail] = useState('');
     const [userEmailError, setUserEmailError] = useState(false);
 
     const [userConfirmEmail, setUserConfirmEmail] = useState('');
     const [userEmailsMatching, setUserEmailsMatching] = useState(false);
 
-    const [userPassword, setUserPassword] = useState('');
+    const [password, setUserPassword] = useState('');
     
-    const [userUsername, setUsername] = useState('');
+    const [username, setUsername] = useState('');
     
     const [userBirthYear, setUserBirthYear] = useState('');
     
@@ -45,7 +50,7 @@ function Signup() {
 
     const handleInputEmail = (e) => {
 
-        if(userEmail.length <= 3){
+        if(email.length <= 3){
             setUserEmailError(true);
         }
         else{
@@ -57,11 +62,11 @@ function Signup() {
     }
 
     const handleInputConfirmEmail = (e) => {
-        if(userEmail !== userConfirmEmail){
+        if(email !== userConfirmEmail){
             setUserEmailsMatching(true);
             setUserConfirmEmail(e.target.value);
         }
-        if(userEmail === userConfirmEmail){
+        if(email === userConfirmEmail){
             setUserConfirmEmail(e.target.value);
             setUserEmailsMatching(false);
         }
@@ -75,9 +80,9 @@ function Signup() {
         setUsername(e.target.value);
     }
 
-    const handleInputYear = (e) => {
-        setUserBirthYear(e.target.value);
-    }
+    // const handleInputYear = (e) => {
+    //     setUserBirthYear(e.target.value);
+    // }
 
 
     const rerouteToMainPage = () => {
@@ -87,34 +92,53 @@ function Signup() {
 
     const confirmUserData = (e) => {
         e.preventDefault();
-        if (userEmail === userConfirmEmail && userEmail.length >= 4 && userUsername.length >= 3 && userBirthYear <= MINIMUM_YEAR) {
+        if (email === userConfirmEmail && email.length >= 4) {
             
-            console.log('EMAIL : matches and age confirmed');
+            console.log('EMAIL : matches');
             //if email and confirmed email, password and age passes the parameters, then
             // take the user input and create the user account
-            setUserData(userEmail, userUsername  , userPassword);
+            setUserData(email, username  , password);
 
         } 
-        else if (userEmail !== userConfirmEmail && userEmail.length >= 4) {
+        if (email !== userConfirmEmail && email.length >= 4) {
             
             setErrorMessage('Emails are not matching');
             console.log('the email not matching');
             setErrors(previousState => !previousState);
         }
-        else
-        {
-            setErrorMessage('Does not meet age requirement')
-            setErrors(previousState => !previousState);
-            console.log('Does not meet age requirement');
-        }
+        // else
+        // {
+        //     setErrorMessage('Does not meet age requirement')
+        //     setErrors(previousState => !previousState);
+        //     console.log('Does not meet age requirement');
+        // }
     }
 
-    const setUserData = async (userEmail, userName,  userPassword) => {
+    const setUserData = async (email, username, password) => {
         try {
-            await createUser(userEmail, userName, userPassword);
-            redirectUser();
+            let obj = {
+                email : email,
+                username : username,
+                password : password
+            }
+
+            const response = await axios.post(REGISTER_URL, obj, {
+                headers : {'Content-Type': "application/json"}
+            },
+            );
+
+            console.log(response.data);
+            console.log(JSON.stringify(response));
+            navigate('/');
+            //redirectUser();
         } catch (e) {
-            console.log(e.messages);
+            if(!e?.response){
+                console.log('no server response')
+            }else if (e.response?.status === 409){
+                console.log('username was already taken');
+            }else {
+                console.log(e.message);
+            }
         }
     }
 
@@ -126,7 +150,7 @@ function Signup() {
 
     return (
         <>
-        { (ifErrors) ? <div className='error__notification'><h3>{errorMessage}</h3></div> : null}
+       {/* <div className='error__notification'><h3>{errorMessage}</h3></div> */}
         <div className='userPage__backgroundColor center__items'>
             <div className='user__container'>
                 <div className='user__container__header'>
@@ -166,13 +190,13 @@ function Signup() {
 
 
                         <div className='user__container__optionInput'>
-                            <input ref={userRef} type='email' name="email" value={userEmail} placeholder="Enter your email" required onChange={handleInputEmail} />
+                            <input ref={userRef} type='email' name="email" value={email} placeholder="Enter your email" required onChange={handleInputEmail} />
                         </div>
 
 
-                        { (userEmailError) && <div className='error__notification__input'>
+                       {/* <div className='error__notification__input'>
                             Email needs at be at least 4 characters long
-                        </div>}
+                        </div> */}
 
                         <div className='user__container__optionLabel'>
                             <label htmlFor='confirm-email'>Confirm your email</label>
@@ -182,16 +206,16 @@ function Signup() {
                             <input type='email' name="confirm-email" value={userConfirmEmail} placeholder="Enter your email again" required onChange={handleInputConfirmEmail} />
                         </div>
 
-                        { (userEmailsMatching) && <div className='error__notification__input'>
+                       {/* <div className='error__notification__input'>
                             Emails do not match 
-                        </div>}
+                        </div> */}
 
                         <div className='user__container__optionLabel'>
                             <label htmlFor='password'>Create a password</label>
                         </div>
 
                         <div className='user__container__optionInput'>
-                            <input type='password' name="password" value={userPassword} placeholder="Enter your password" required onChange={handleInputPassword} />
+                            <input type='password' name="password" value={password} placeholder="Enter your password" required onChange={handleInputPassword} />
                         </div>
 
                         <div className='user__container__optionLabel'>
@@ -199,14 +223,14 @@ function Signup() {
                         </div>
 
                         <div className='user__container__optionInput'>
-                            <input type="text" name="username" value={userUsername} required onChange={handleInputUsername} />
+                            <input type="text" name="username" value={username} required onChange={handleInputUsername} />
                         </div>
 
                         <div className='user__container__optionSubheader'>
                             <span>This appears on your profile</span>
                         </div>
 
-                        <div className='user__contaier__optionSelect__title'>
+                        {/* <div className='user__contaier__optionSelect__title'>
                             <h3>What's your date of birth?</h3>
                         </div>
 
@@ -261,7 +285,7 @@ function Signup() {
                                 <label>Non-binary</label>
                             </div>
 
-                        </div>
+                        </div> */}
 
                         <div className='user__container__checkbox'>
                             <input type="checkbox" />
