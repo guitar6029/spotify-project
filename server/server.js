@@ -6,35 +6,12 @@ const port = process.env.PORT || 3005;
 const mongoose = require('mongoose');
 const connectToDatabase = require('./config/db');
 const cors = require('cors');
+const corsOptions = require('./config/corsConfig');
+
+//for pass json data
+app.use(express.json());
 
 //cross origin resource sharing
-app.use(express.json());
-const whitelist = ['http://localhost:3000', 'http://localhost:3005/api'];
-
-// const corsOptions = (req, callback) => {
-//     let corsOptions;
-
-//     let isDomainAllowed = whitelist.indexOf(req.header('Origin')) !== -1;
-
-//     if (isDomainAllowed) {
-//         // Enable CORS for this request
-//         corsOptions = { origin: true },
-//             credentials = { origin: true }
-//     } else {
-//         // Disable CORS for this request
-//         corsOptions = { origin: false }
-//     }
-//     callback(null, corsOptions)
-// }
-
-const corsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:3005/api', 'http://localhost:3005/users'],
-    credentials: true,
-    optionSuccessStatus: 200,
-    methods : "GET,HEAD,PUT,PATCH,POST,DELETE",
-   
-}
-
 app.use(cors(corsOptions));
 
 //connect to mongodb
@@ -102,13 +79,13 @@ let playlists = [
         category: 'Mood Booster',
     }
 ]
-
+//for user register, login and logout 
 app.use('/users', cors(corsOptions), require('./routes/userRoutes'));
-
+// will contain the playlists
 app.get('/api', cors(corsOptions), (req, res) => {
 
     res.json(playlists);
 })
 app.listen(port, () => {
-    console.log(`Listening on port : ${port}`);
+    console.log(`Server started on port : ${port}.`);
 })

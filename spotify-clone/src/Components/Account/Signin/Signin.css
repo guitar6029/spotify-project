@@ -1,0 +1,14 @@
+.error_message{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    bottom: 0;
+    color: #000;
+    background-color: #ea0e0e;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}

@@ -18,15 +18,13 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new Error("Please add all of the input requirements")
     }
 
-    
+    //get input from the signup component
     const { email, username, password } = req.body
 
     //if empty
     if (!email || !username || !password) {
         res.status(400)
-        console.log(email)
-        console.log(username)
-        console.log(password)
+        
         throw new Error('Please add all fields')
     }
 
@@ -88,7 +86,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 //user account
 const userAccount = asyncHandler(async (req, res) => {
-    const {_id, username, email } = await User.findById(req.user.id)
+    const { _id, username, email } = await User.findById(req.user.id)
     res.status(200).json({
         id: _id,
         username: username,
