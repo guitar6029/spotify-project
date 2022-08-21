@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import axios from '../../../API/axios';
-
+import { UserAuth } from '../../../Context/UserAuth';
 import './Signin.css';
 
 function Signin() {
 
     //used for rerouting
     const navigate = useNavigate();
-
-    //login api
-    const LOGIN_URL = '/users/login';
+    const { loginUser } = UserAuth();
 
     //states
     const [email, setUserEmail] = useState('');
@@ -20,7 +17,7 @@ function Signin() {
     //refs
     const focusOnFirstInput = useRef();
     const errorRef = useRef();
-    
+
     //to set focus on first input, when page loads
     useEffect(() => {
         focusOnFirstInput.current.focus();
@@ -45,35 +42,15 @@ function Signin() {
     const authUserInput = async (e) => {
         e.preventDefault();
         try {
-            let obj = {
-                email: email,
-                password: password
-            }
-            const response = await axios.post(LOGIN_URL, obj, {
-                headers: { 'Content-Type': "application/json" }
-            },
-            );
-
-            console.log(response.data);
-            console.log(JSON.stringify(response));
-            navigate('/');
+            await loginUser(email, password);
         } catch (e) {
-            
-            setErrorMessage("Email and/or password are incorrect. Please try again");
             console.log(e.message);
         }
-
     }
 
     const rerouteToMainPage = () => {
         navigate('/');
     }
-
-
-    const redirectUser = () => {
-        navigate('/');
-    }
-
 
     return (
         <>
@@ -116,14 +93,14 @@ function Signin() {
                             </div>
 
                             <div className='user__container__optionInput'>
-                                <input 
-                                name="email" 
-                                ref={focusOnFirstInput} 
-                                type='email' 
-                                placeholder="Enter your email" 
-                                value={email}
-                                required 
-                                onChange={handleInputEmail} />
+                                <input
+                                    name="email"
+                                    ref={focusOnFirstInput}
+                                    type='email'
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    required
+                                    onChange={handleInputEmail} />
                             </div>
 
                             <div className='user__container__optionLabel'>
@@ -131,13 +108,13 @@ function Signin() {
                             </div>
 
                             <div className='user__container__optionInput'>
-                                <input 
-                                type='password' 
-                                name="password" 
-                                placeholder="Enter your password" 
-                                value={password}
-                                required 
-                                onChange={handleInputPassword} />
+                                <input
+                                    type='password'
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    required
+                                    onChange={handleInputPassword} />
                             </div>
 
 

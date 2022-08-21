@@ -81,6 +81,8 @@ let playlists = [
 ]
 //for user register, login and logout 
 app.use('/users', cors(corsOptions), require('./routes/userRoutes'));
+
+app.use('/library', cors(corsOptions), require('./routes/spotifyAPI'));
 // will contain the playlists
 app.get('/api', cors(corsOptions), (req, res) => {
 

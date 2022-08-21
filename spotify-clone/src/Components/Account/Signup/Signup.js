@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import axios from '../../../API/axios';
+import { UserAuth } from '../../../Context/UserAuth';
 import './Signup.css';
 
 function Signup() {
@@ -8,8 +8,10 @@ function Signup() {
 
     const navigate = useNavigate();
 
+    const { registerUser } = UserAuth();
+
     //register api URL
-    const REGISTER_URL = '/users/register';
+    // const REGISTER_URL = '/users/register';
 
     // for age restriction check
     //const MINIMUM_YEAR = 2009; 
@@ -57,21 +59,12 @@ function Signup() {
 
     const submitUserData = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post(REGISTER_URL, ({ email, username, password }), { headers: { 'Content-Type': "application/json" } });
+        try{
+            const response = await registerUser(email, username, password);
             navigate('/user/signin');
-
-        } catch (e) {
-            if (!e?.response) {
-                console.log('no server response')
-            } else if (e.response?.status === 409) {
-                setUsernameErorMessage('Username already taken');
-
-            } else {
-                console.log('email/username alredy in use');
-                setEmailAlreadyUsed('Email/username already in use');
-                console.log(e.message);
-            }
+            //console.log(response.data);
+        }catch(e){
+            console.log(e.message);
         }
 
     }
